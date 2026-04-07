@@ -114,7 +114,14 @@
             margin-bottom: 15px; 
             padding-left: 15px; 
             border-left: 4px solid #ffdb58; /* Mustard accent */
+        .pub-item a { color: #0a192f; font-weight: bold; text-decoration: none; }
+        .pub-item a:hover { color: #ffdb58; text-decoration: underline; }
         }
+        
+        /* Previous Members List */
+        .previous-members { color: #555; padding-left: 20px; }
+        
+        footer { text-align: center; padding: 3rem; color: #aaa; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -125,6 +132,7 @@
             <a href="#members">Members</a>
             <a href="#publications">Publications</a>
             <a href="#aob">AOB</a>
+            <a href="#previous-members">Alumni</a>
         </div>
 
         <div class="nav-logo-group">
@@ -136,19 +144,19 @@
     <div class="container">
         
         <section id="research-summary">
-            <h2>Lab Summary</h2>
-            <p>Our research focuses on [Enter your core research mission here]. We investigate the relationship between [Variable A] and [Variable B] to discover [Goal].</p>
+            <h2>Research</h2>
+            <p>Our research focuses on .... We investigate the relationship between sounds and the brain to understand auditory perception.</p>
         </section>
 
         <section id="members">
             <h2>Lab Members & Collaborators</h2>
             
             <div class="member-card">
-                <img src="jane_wood.jpg" alt="Dr. Jane Wood" class="member-photo">
+                <img src="jane_wood.jpg" alt="Dr. Katherine Wood" class="member-photo">
                 <div class="member-info">
-                    <h3><a href="https://scholar.google.com/" target="_blank">Dr. Jane Wood</a></h3>
+                    <h3><a href="https://scholar.google.co.uk/" target="citations?user=xD8ZZP4AAAAJ&hl=en&inst=12733411405069140160">Dr. Katherine Wood</a></h3>
                     <p><strong>Principal Investigator</strong></p>
-                    <p>Short bio: Jane leads the lab's efforts in [Field Name], focusing on [Topic].</p>
+                    <p>Kath is interested in understanding how brain activity underlies auditory perception.</p>
                 </div>
             </div>
             </section>
@@ -163,6 +171,14 @@
         <section id="aob">
             <h2>AOB</h2>
             <p>Welcome to our new website! Check here for upcoming conference announcements and lab news.</p>
+        </section>
+        
+        <section id="previous-members">
+            <h2>Previous Members</h2>
+            <p>We are proud of our alumni and their continued success.</p>
+            <ul style="color: #666;">
+                <li><strong>Dr. Past Member</strong> - Now at University of Somewhere (2021-2023)</li>
+                </ul>
         </section>
 
     </div>
@@ -194,12 +210,12 @@
                     // Logic to find the year
                     const year = item.created['date-parts'][0][0];
                     
+                    // Logic: Wrap the Title in the link, remove the URL text row
                     return {
                         year: year,
                         html: `<li class="pub-item">
-                            <strong>${item.title[0]}</strong> (${year}). 
-                            <em>${item['container-title'][0]}</em>.<br>
-                            <a href="${item.URL}" target="_blank" style="font-size: 0.9rem;">${item.URL}</a>
+                            <a href="${item.URL}" target="_blank">${item.title[0]}</a> 
+                            (${year}). <em>${item['container-title'][0]}</em>.
                         </li>`
                     };
                 }));
