@@ -9,37 +9,45 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            background-color: #0a192f; /* Dark Blue */
+            color: #ffffff; /* White Text */
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth; /* Makes the jumping smooth */
+            scroll-behavior: smooth;
         }
 
-        /* Navigation */
+        /* Navigation Bar */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            padding: 1rem 0;
+            background: #0d1d33; /* Slightly lighter blue for contrast */
+            border-bottom: 1px solid #1e2d44;
+            padding: 1.2rem 0;
             z-index: 1000;
             text-align: center;
         }
 
-        nav a {
+        /* Link Styling */
+        nav a, section a {
             margin: 0 15px;
             text-decoration: none;
-            color: #555;
             font-weight: 600;
-            transition: color 0.3s;
+            color: #ffdb58; /* Mustard Yellow */
+            transition: color 0.2s ease-in-out;
         }
 
+        /* State: Hover (mouse over) */
         nav a:hover {
-            color: #007bff;
+            opacity: 0.8;
         }
 
-        /* Layout Containers */
+        /* State: Clicked/Active */
+        nav a:active, section a:active {
+            color: #ff69b4; /* Hot Pink */
+        }
+
+        /* Layout */
         .container {
             max-width: 800px;
             margin: auto;
@@ -47,12 +55,12 @@
         }
 
         section {
-            padding: 80px 0 40px 0; /* Extra top padding so nav doesn't cover headings */
-            border-bottom: 1px solid #f0f0f0;
+            padding: 100px 0 60px 0;
+            border-bottom: 1px solid #1e2d44;
         }
 
         h1, h2 {
-            color: #222;
+            color: #ffdb58; /* Headings in Mustard to match links */
         }
 
         /* Section Specifics */
@@ -62,17 +70,17 @@
         }
 
         .lab-members li {
-            background: #f9f9f9;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-left: 4px solid #007bff;
+            background: #112240;
+            margin-bottom: 12px;
+            padding: 15px;
+            border-left: 4px solid #ffdb58;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             font-size: 0.9rem;
-            color: #888;
+            color: #8892b0;
         }
     </style>
 </head>
@@ -87,14 +95,14 @@
 
     <div class="container">
         
-        <header style="padding-top: 100px; text-align: center;">
-            <h1>KTHCWD Lab</h1>
-            <p>Advancing research through collaboration and innovation.</p>
+        <header style="padding-top: 120px; text-align: center;">
+            <h1 style="font-size: 3rem;">KTHCWD Lab</h1>
+            <p style="color: #8892b0;">Researching the future of [Insert Field]</p>
         </header>
 
         <section id="summary">
             <h2>Lab Summary</h2>
-            <p>Welcome to our research hub. Our primary focus is on [Insert Research Area]. We investigate the intersection of [Topic A] and [Topic B] to better understand [Goal].</p>
+            <p>Our research focuses on solving complex problems in the realm of [Field Name]. We utilize [Methodology] to explore how [Variable A] affects [Variable B].</p>
         </section>
 
         <section id="members" class="lab-members">
@@ -102,22 +110,22 @@
             <ul>
                 <li><strong>Dr. Name</strong> - Principal Investigator</li>
                 <li><strong>Researcher Name</strong> - Postdoctoral Fellow</li>
-                <li><strong>Collaborator Name</strong> - University of Example</li>
+                <li><strong>Collaborator Name</strong> - External Partner</li>
             </ul>
         </section>
 
         <section id="publications">
             <h2>Publications</h2>
-            <p>Our recent work has been featured in leading journals:</p>
+            <p>Check out our latest work:</p>
             <ul>
-                <li>"Title of the most recent paper," <em>Journal Name</em>, 2024.</li>
-                <li>"Another significant discovery," <em>Nature Research</em>, 2023.</li>
+                <li>"Paper Title," 2024.</li>
+                <li>"Another Publication," 2023.</li>
             </ul>
         </section>
 
         <section id="aob">
             <h2>AOB</h2>
-            <p>Any other business, news, or upcoming events will be posted here. Stay tuned for our upcoming summer symposium!</p>
+            <p>No current updates. Check back soon for news regarding our upcoming workshops.</p>
         </section>
 
     </div>
