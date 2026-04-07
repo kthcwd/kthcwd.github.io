@@ -3,135 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KTHCWD Lab</title>
+    <title>WOOD Lab</title>
     <style>
-        /* General Styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            background-color: #0a192f; /* Dark Blue */
-            color: #ffffff; /* White Text */
+            background-color: #ffffff; /* Back to White */
+            color: #0a192f; /* Dark Blue Text */
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
         }
 
-        /* Navigation Bar */
+        /* Fixed Navigation & Logo Area */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #0d1d33; /* Slightly lighter blue for contrast */
-            border-bottom: 1px solid #1e2d44;
-            padding: 1.2rem 0;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between; /* Logo left, Links right */
+            align-items: center;
+            padding: 0.5rem 2rem;
             z-index: 1000;
-            text-align: center;
+            box-sizing: border-box;
         }
 
-        /* Link Styling */
-        nav a, section a {
-            margin: 0 15px;
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left img {
+            height: 50px; /* Adjust based on your logo shape */
+            margin-right: 15px;
+        }
+
+        .nav-left span {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #0a192f;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
             text-decoration: none;
             font-weight: 600;
+            color: #0a192f;
+            transition: color 0.2s;
+        }
+
+        /* Link colors as requested */
+        .nav-links a:hover, section a:hover {
             color: #ffdb58; /* Mustard Yellow */
-            transition: color 0.2s ease-in-out;
         }
 
-        /* State: Hover (mouse over) */
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* State: Clicked/Active */
-        nav a:active, section a:active {
+        .nav-links a:active, section a:active {
             color: #ff69b4; /* Hot Pink */
         }
 
-        /* Layout */
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
-            padding: 2rem;
+            padding: 120px 2rem 2rem 2rem; /* padding-top accounts for fixed nav */
         }
 
         section {
-            padding: 100px 0 60px 0;
-            border-bottom: 1px solid #1e2d44;
+            padding: 60px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        h1, h2 {
-            color: #ffdb58; /* Headings in Mustard to match links */
+        h2 { border-bottom: 2px solid #0a192f; display: inline-block; padding-bottom: 5px; }
+
+        /* Member Layout */
+        .member-card {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            gap: 20px;
         }
 
-        /* Section Specifics */
-        .lab-members ul {
-            list-style: none;
-            padding: 0;
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #eee; /* Placeholder */
         }
 
-        .lab-members li {
-            background: #112240;
-            margin-bottom: 12px;
-            padding: 15px;
-            border-left: 4px solid #ffdb58;
-        }
+        .member-info h3 { margin: 0; }
+        .member-info a { text-decoration: none; color: #0a192f; }
+        .member-info a:hover { color: #ffdb58; }
 
-        footer {
-            text-align: center;
-            padding: 3rem;
-            font-size: 0.9rem;
-            color: #8892b0;
-        }
+        /* Publication List */
+        .pub-list { list-style: none; padding: 0; }
+        .pub-item { margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #ffdb58; }
+
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#summary">Lab Summary</a>
-        <a href="#members">Members</a>
-        <a href="#publications">Publications</a>
-        <a href="#aob">AOB</a>
+        <div class="nav-left">
+            <img src="WoodLabLogo_alt.png" alt="Wood Lab Logo">
+            <span>WOOD Lab</span>
+        </div>
+        <div class="nav-links">
+            <a href="#summary">Research</a>
+            <a href="#members">Members</a>
+            <a href="#publications">Publications</a>
+            <a href="#aob">AOB</a>
+        </div>
     </nav>
 
     <div class="container">
         
-        <header style="padding-top: 120px; text-align: center;">
-            <h1 style="font-size: 3rem;">KTHCWD Lab</h1>
-            <p style="color: #8892b0;">Researching the future of [Insert Field]</p>
-        </header>
-
         <section id="summary">
             <h2>Lab Summary</h2>
             <p>Our research focuses on solving complex problems in the realm of [Field Name]. We utilize [Methodology] to explore how [Variable A] affects [Variable B].</p>
         </section>
 
-        <section id="members" class="lab-members">
+        <section id="members">
             <h2>Lab Members & Collaborators</h2>
-            <ul>
-                <li><strong>Dr. Name</strong> - Principal Investigator</li>
-                <li><strong>Researcher Name</strong> - Postdoctoral Fellow</li>
-                <li><strong>Collaborator Name</strong> - External Partner</li>
-            </ul>
+            
+            <div class="member-card">
+                <img src="member1.jpg" alt="Dr. Name" class="member-photo">
+                <div class="member-info">
+                    <h3><a href="https://scholar.google.com/..." target="_blank">Dr. Jane Wood</a></h3>
+                    <p><strong>Principal Investigator</strong><br>
+                    Jane specializes in X and Y with over 10 years of experience in the field. She leads the lab's vision on Z.</p>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="member2.jpg" alt="Researcher Name" class="member-photo">
+                <div class="member-info">
+                    <h3><a href="https://scholar.google.com/..." target="_blank">John Smith</a></h3>
+                    <p><strong>Postdoctoral Fellow</strong><br>
+                    John's work focuses on the intersection of data and practical application.</p>
+                </div>
+            </div>
         </section>
 
         <section id="publications">
             <h2>Publications</h2>
-            <p>Check out our latest work:</p>
-            <ul>
-                <li>"Paper Title," 2024.</li>
-                <li>"Another Publication," 2023.</li>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <strong>Title of the Paper</strong> (2024). <em>Journal of Research</em>. <br>
+                    <a href="https://doi.org/10.xxxx/xxxx">doi.org/10.xxxx/xxxx</a>
+                </li>
             </ul>
         </section>
 
         <section id="aob">
             <h2>AOB</h2>
-            <p>No current updates. Check back soon for news regarding our upcoming workshops.</p>
+            <p>Stay tuned for upcoming seminars and news.</p>
         </section>
 
     </div>
 
     <footer>
-        &copy; 2026 KTHCWD Lab. Built with GitHub Pages.
+        <p style="text-align: center; padding: 2rem; color: #888;">&copy; 2026 WOOD Lab.</p>
     </footer>
 
 </body>
