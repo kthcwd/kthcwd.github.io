@@ -106,7 +106,6 @@
 
     <nav>
         <div class="nav-left">
-            <img src="WoodLabLogo_alt.png" alt="Wood Lab Logo">
             <span>WOOD Lab</span>
         </div>
         <div class="nav-links">
@@ -114,6 +113,7 @@
             <a href="#members">Members</a>
             <a href="#publications">Publications</a>
             <a href="#aob">AOB</a>
+            <img src="WoodLabLogo_alt.png" alt="Wood Lab Logo">
         </div>
     </nav>
 
@@ -148,12 +148,9 @@
 
         <section id="publications">
             <h2>Publications</h2>
-            <ul class="pub-list">
-                <li class="pub-item">
-                    <strong>Title of the Paper</strong> (2024). <em>Journal of Research</em>. <br>
-                    <a href="https://doi.org/10.xxxx/xxxx">doi.org/10.xxxx/xxxx</a>
-                </li>
-            </ul>
+            <div id="pub-loading" style="display:none; color: #888;">Fetching latest data...</div>
+            <ul id="doi-list" class="pub-list">
+                </ul>
         </section>
 
         <section id="aob">
@@ -166,6 +163,51 @@
     <footer>
         <p style="text-align: center; padding: 2rem; color: #888;">&copy; 2026 WOOD Lab.</p>
     </footer>
+    
+    <script>
+        const doiArray = [
+            "10.1038/s41467-022-28784-w", // Replace these with your actual DOIs
+            "10.1038/s41467-019-10868-9"
+        ];
+
+        async function fetchPublications() {
+            const listContainer = document.getElementById('doi-list');
+            const loader = document.getElementById('pub-loading');
+            loader.style.display = 'block';
+
+            try {
+                const pubData = await Promise.all(doiArray.map(async (doi) => {
+                    const response = await fetch(`https://api.crossref.org/works/${doi}`);
+                    const data = await response.json();
+                    const item = data.message;
+                    
+                    // Extract Year
+                    const year = item.created['date-parts'][0][0];
+                    return {
+                        year: year,
+                        html: `<li class="pub-item">
+                            <strong>${item.title[0]}</strong> (${year}). 
+                            <em>${item['container-title'][0]}</em>.<br>
+                            <a href="${item.URL}" target="_blank">${item.URL}</a>
+                        </li>`
+                    };
+                }));
+
+                // Sort by Year (Descending)
+                pubData.sort((a, b) => b.year - a.year);
+
+                // Inject into page
+                listContainer.innerHTML = pubData.map(p => p.html).join('');
+            } catch (error) {
+                console.error("Error fetching DOIs:", error);
+                listContainer.innerHTML = "<li>Error loading publications. Check DOIs or connection.</li>";
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        fetchPublications();
+    </script>
 
 </body>
 </html>
