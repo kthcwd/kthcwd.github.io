@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WOOD Lab</title>
     <style>
-        /* =========================================
-           GLOBAL STYLES
-           ========================================= */
+        /* GLOBAL STYLES */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             background-color: #ffffff; 
-            color: #0a192f; /* Dark Blue Text */
+            color: #0a192f; 
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
         }
 
-        /* =========================================
-           NAVIGATION (The header that stays at top)
-           ========================================= */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -28,14 +24,13 @@
             background: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             display: flex;
-            justify-content: flex-end; /* This pushes everything to the right */
+            justify-content: flex-end; 
             align-items: center;
             padding: 0.5rem 2rem;
             z-index: 1000;
             box-sizing: border-box;
         }
 
-        /* The links group */
         .nav-links a {
             margin-left: 20px;
             text-decoration: none;
@@ -44,107 +39,57 @@
             transition: color 0.2s;
         }
 
-        /* Logo and Lab Name group on the far right */
+        /* Hover state */
+        .nav-links a:hover { color: #ffdb58; } 
+
+        /* This class is applied by JavaScript once a link is clicked */
+        .nav-links a.clicked-pink, .pub-item a.clicked-pink {
+            color: #ff69b4 !important;
+        }
+
         .nav-logo-group {
             display: flex;
             align-items: center;
             margin-left: 30px;
-            border-left: 1px solid #eee; /* Subtle divider line */
+            border-left: 1px solid #eee;
             padding-left: 20px;
         }
 
-        .nav-logo-group span {
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-right: 10px;
-        }
+        .nav-logo-group span { font-weight: 800; font-size: 1.2rem; margin-right: 10px; }
+        .nav-logo-group img { height: 50px; width: auto; }
 
-        .nav-logo-group img {
-            height: 50px; /* Keep logo size consistent */
-            width: auto;
-        }
-
-        /* Link Colors */
-        a:hover { color: #ffdb58; } /* Mustard Yellow */
-        a:active { color: #ff69b4; } /* Hot Pink */
-
-        /* =========================================
-           LAYOUT & SECTIONS
-           ========================================= */
+        /* LAYOUT */
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 100px 2rem 2rem 2rem; /* Top padding so content isn't under Nav */
+            padding: 100px 2rem 2rem 2rem;
         }
 
-        section {
-            padding: 80px 0 40px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
+        section { padding: 80px 0 40px 0; border-bottom: 1px solid #f0f0f0; }
+        h2 { border-bottom: 2px solid #0a192f; display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
 
-        h2 { 
-            border-bottom: 2px solid #0a192f; 
-            display: inline-block; 
-            padding-bottom: 5px; 
-            margin-bottom: 20px;
-        }
-
-        /* Member Layout */
-        .member-card {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2.5rem;
-            gap: 25px;
-        }
-
-        .member-photo {
-            width: 130px;
-            height: 130px;
-            border-radius: 6px;
-            object-fit: cover;
-            background: #f0f0f0;
-        }
-
+        /* Members */
+        .member-card { display: flex; align-items: flex-start; margin-bottom: 2.5rem; gap: 25px; }
+        .member-photo { width: 130px; height: 130px; border-radius: 6px; object-fit: cover; background: #f0f0f0; }
         .member-info h3 { margin: 0; font-size: 1.4rem; }
-        .member-info p { margin: 5px 0; }
 
         /* Publications */
         .pub-list { list-style: none; padding: 0; }
-        .pub-item { 
-            margin-bottom: 15px; 
-            padding-left: 15px; 
-            border-left: 4px solid #ffdb58; /* Mustard accent */
+        .pub-item { margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #ffdb58; }
         .pub-item a { color: #0a192f; font-weight: bold; text-decoration: none; }
         .pub-item a:hover { color: #ffdb58; text-decoration: underline; }
-        }
         
-        /* AOB News Cards */
+        /* AOB Cards */
         .aob-card {
             background: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
-            border-left: 5px solid #0a192f; /* Dark Blue left border */
+            border-left: 5px solid #0a192f;
             margin-bottom: 20px;
             transition: transform 0.2s ease;
         }
+        .aob-card:hover { transform: translateX(5px); background: #f1f1f1; }
 
-        .aob-card:hover {
-            transform: translateX(5px); /* Slight nudge when hovering */
-            background: #f1f1f1;
-        }
-
-        .aob-card h3 {
-            margin-top: 0;
-            color: #0a192f;
-        }
-
-        .aob-card p:last-child {
-            margin-bottom: 0;
-        }
-        
-        /* Previous Members List */
-        .previous-members { color: #555; padding-left: 20px; }
-        
         footer { text-align: center; padding: 3rem; color: #aaa; font-size: 0.8rem; }
     </style>
 </head>
@@ -152,13 +97,12 @@
 
     <nav>
         <div class="nav-links">
-            <a href="#research-summary">Research</a>
-            <a href="#members">Members</a>
-            <a href="#publications">Publications</a>
-            <a href="#aob">AOB</a>
-            <a href="#previous-members">Alumni</a>
+            <a href="#research-summary" class="perm-link">Research</a>
+            <a href="#members" class="perm-link">Members</a>
+            <a href="#publications" class="perm-link">Publications</a>
+            <a href="#aob" class="perm-link">AOB</a>
+            <a href="#previous-members" class="perm-link">Alumni</a>
         </div>
-
         <div class="nav-logo-group">
             <span>WOOD Lab</span>
             <img src="WoodLabLogo_alt.png" alt="Wood Lab Logo">
@@ -166,102 +110,98 @@
     </nav>
 
     <div class="container">
-        
         <section id="research-summary">
             <h2>Research</h2>
-            <p>Our research focuses on .... We investigate the relationship between sounds and the brain to understand auditory perception.</p>
+            <p>Our research focuses on understanding auditory perception.</p>
         </section>
 
         <section id="members">
             <h2>Lab Members & Collaborators</h2>
-            
             <div class="member-card">
-                <img src="jane_wood.jpg" alt="Dr. Katherine Wood" class="member-photo">
+                <img src="KathMicroscopePic.jpg" alt="Dr. Katherine Wood" class="member-photo">
                 <div class="member-info">
-                    <h3><a href="https://scholar.google.co.uk/citations?user=xD8ZZP4AAAAJ&hl" target="_blank">Dr. Katherine Wood</a></h3>
+                    <h3><a href="https://scholar.google.co.uk/citations?user=xD8ZZP4AAAAJ&hl" target="_blank" class="perm-link">Dr. Katherine Wood</a></h3>
                     <p><strong>Principal Investigator</strong></p>
-                    <p>Kath is interested in understanding how brain activity underlies auditory perception.</p>
+                    <p>Kath investigates brain activity and auditory perception.</p>
                 </div>
             </div>
-            </section>
+        </section>
 
         <section id="publications">
             <h2>Publications</h2>
-            <div id="pub-loading" style="display:none; color: #888;">Fetching latest data from Crossref...</div>
-            <ul id="doi-list" class="pub-list">
-                </ul>
+            <div id="pub-loading" style="display:none; color: #888;">Fetching data...</div>
+            <ul id="doi-list" class="pub-list"></ul>
         </section>
 
         <section id="aob">
             <h2>AOB</h2>
-            <p>Welcome to our new website! Check here for upcoming conference announcements and lab news.</p>
-            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 5px solid #0a192f; margin-bottom: 20px;">
+            <div class="aob-card">
                 <h3>News Title</h3>
-                <p>Details about the event or update. You can add <a href="link" target="_blank">links</a> here.</p>
+                <p>Details about updates or events.</p>
             </div>
         </section>
         
         <section id="previous-members">
             <h2>Previous Members</h2>
-            <p>We are proud of our alumni and their continued success.</p>
             <ul style="color: #666;">
                 <li><strong>Dr. Past Member</strong> - Now at University of Somewhere (2021-2023)</li>
-                </ul>
+            </ul>
         </section>
-
     </div>
 
-    <footer>
-        <p style="text-align: center; padding: 3rem; color: #aaa; font-size: 0.8rem;">
-            &copy; 2026 WOOD Lab | Built with GitHub Pages
-        </p>
-    </footer>
+    <footer>&copy; 2026 WOOD Lab</footer>
 
     <script>
-        /* EDIT THIS LIST: Add your DOIs inside the quotes, separated by commas */
-        const doiArray = [
-            "10.1038/s41467-022-28784-w",
-            "10.1038/s41467-019-10868-9"
-        ];
+        // --- Permanent Pink Links Logic ---
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('perm-link')) {
+                const linkId = e.target.href || e.target.innerText;
+                localStorage.setItem('clicked-' + linkId, 'true');
+                e.target.classList.add('clicked-pink');
+            }
+        });
+
+        // Apply pink on page load
+        document.querySelectorAll('.perm-link').forEach(link => {
+            const linkId = link.href || link.innerText;
+            if (localStorage.getItem('clicked-' + linkId)) {
+                link.classList.add('clicked-pink');
+            }
+        });
+
+        // --- DOI Publication Logic ---
+        const doiArray = ["10.1038/s41467-022-28784-w", "10.1038/s41467-019-10868-9"]; //
 
         async function fetchPublications() {
             const listContainer = document.getElementById('doi-list');
             const loader = document.getElementById('pub-loading');
             loader.style.display = 'block';
-
             try {
                 const pubData = await Promise.all(doiArray.map(async (doi) => {
                     const response = await fetch(`https://api.crossref.org/works/${doi}`);
                     const data = await response.json();
                     const item = data.message;
-                    
-                    // Logic to find the year
                     const year = item.created['date-parts'][0][0];
-                    
-                    // Logic: Wrap the Title in the link, remove the URL text row
                     return {
                         year: year,
                         html: `<li class="pub-item">
-                            <a href="${item.URL}" target="_blank">${item.title[0]}</a> 
+                            <a href="${item.URL}" target="_blank" class="perm-link">${item.title[0]}</a> 
                             (${year}). <em>${item['container-title'][0]}</em>.
                         </li>`
                     };
                 }));
-
-                // Sort newest to oldest
                 pubData.sort((a, b) => b.year - a.year);
-
                 listContainer.innerHTML = pubData.map(p => p.html).join('');
+                
+                // Re-check publications for permanent pink status after they load
+                document.querySelectorAll('#doi-list .perm-link').forEach(link => {
+                    if (localStorage.getItem('clicked-' + link.href)) link.classList.add('clicked-pink');
+                });
             } catch (error) {
-                console.error("DOI Error:", error);
-                listContainer.innerHTML = "<li>Unable to load publications. Please check your DOIs.</li>";
-            } finally {
-                loader.style.display = 'none';
-            }
+                listContainer.innerHTML = "<li>Error loading publications.</li>";
+            } finally { loader.style.display = 'none'; }
         }
-
         fetchPublications();
     </script>
-
 </body>
 </html>
