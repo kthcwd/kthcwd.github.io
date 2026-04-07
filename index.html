@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WOOD Lab</title>
     <style>
+        /* =========================================
+           GLOBAL STYLES
+           ========================================= */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            background-color: #ffffff; /* Back to White */
+            background-color: #ffffff; 
             color: #0a192f; /* Dark Blue Text */
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
         }
 
-        /* Fixed Navigation & Logo Area */
+        /* =========================================
+           NAVIGATION (The header that stays at top)
+           ========================================= */
         nav {
             position: fixed;
             top: 0;
@@ -23,29 +28,14 @@
             background: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             display: flex;
-            justify-content: space-between; /* Logo left, Links right */
+            justify-content: flex-end; /* This pushes everything to the right */
             align-items: center;
             padding: 0.5rem 2rem;
             z-index: 1000;
             box-sizing: border-box;
         }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-left img {
-            height: 50px; /* Adjust based on your logo shape */
-            margin-right: 15px;
-        }
-
-        .nav-left span {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: #0a192f;
-        }
-
+        /* The links group */
         .nav-links a {
             margin-left: 20px;
             text-decoration: none;
@@ -54,119 +44,139 @@
             transition: color 0.2s;
         }
 
-        /* Link colors as requested */
-        .nav-links a:hover, section a:hover {
-            color: #ffdb58; /* Mustard Yellow */
+        /* Logo and Lab Name group on the far right */
+        .nav-logo-group {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+            border-left: 1px solid #eee; /* Subtle divider line */
+            padding-left: 20px;
         }
 
-        .nav-links a:active, section a:active {
-            color: #ff69b4; /* Hot Pink */
+        .nav-logo-group span {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-right: 10px;
         }
 
+        .nav-logo-group img {
+            height: 50px; /* Keep logo size consistent */
+            width: auto;
+        }
+
+        /* Link Colors */
+        a:hover { color: #ffdb58; } /* Mustard Yellow */
+        a:active { color: #ff69b4; } /* Hot Pink */
+
+        /* =========================================
+           LAYOUT & SECTIONS
+           ========================================= */
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 120px 2rem 2rem 2rem; /* padding-top accounts for fixed nav */
+            padding: 100px 2rem 2rem 2rem; /* Top padding so content isn't under Nav */
         }
 
         section {
-            padding: 60px 0;
+            padding: 80px 0 40px 0;
             border-bottom: 1px solid #f0f0f0;
         }
 
-        h2 { border-bottom: 2px solid #0a192f; display: inline-block; padding-bottom: 5px; }
+        h2 { 
+            border-bottom: 2px solid #0a192f; 
+            display: inline-block; 
+            padding-bottom: 5px; 
+            margin-bottom: 20px;
+        }
 
         /* Member Layout */
         .member-card {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 2rem;
-            gap: 20px;
+            margin-bottom: 2.5rem;
+            gap: 25px;
         }
 
         .member-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 8px;
+            width: 130px;
+            height: 130px;
+            border-radius: 6px;
             object-fit: cover;
-            background: #eee; /* Placeholder */
+            background: #f0f0f0;
         }
 
-        .member-info h3 { margin: 0; }
-        .member-info a { text-decoration: none; color: #0a192f; }
-        .member-info a:hover { color: #ffdb58; }
+        .member-info h3 { margin: 0; font-size: 1.4rem; }
+        .member-info p { margin: 5px 0; }
 
-        /* Publication List */
+        /* Publications */
         .pub-list { list-style: none; padding: 0; }
-        .pub-item { margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #ffdb58; }
-
+        .pub-item { 
+            margin-bottom: 15px; 
+            padding-left: 15px; 
+            border-left: 4px solid #ffdb58; /* Mustard accent */
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-left">
-            <span>WOOD Lab</span>
-        </div>
         <div class="nav-links">
-            <a href="#summary">Research</a>
+            <a href="#research-summary">Research</a>
             <a href="#members">Members</a>
             <a href="#publications">Publications</a>
             <a href="#aob">AOB</a>
+        </div>
+
+        <div class="nav-logo-group">
+            <span>WOOD Lab</span>
             <img src="WoodLabLogo_alt.png" alt="Wood Lab Logo">
         </div>
     </nav>
 
     <div class="container">
         
-        <section id="summary">
+        <section id="research-summary">
             <h2>Lab Summary</h2>
-            <p>Our research focuses on solving complex problems in the realm of [Field Name]. We utilize [Methodology] to explore how [Variable A] affects [Variable B].</p>
+            <p>Our research focuses on [Enter your core research mission here]. We investigate the relationship between [Variable A] and [Variable B] to discover [Goal].</p>
         </section>
 
         <section id="members">
             <h2>Lab Members & Collaborators</h2>
             
             <div class="member-card">
-                <img src="member1.jpg" alt="Dr. Name" class="member-photo">
+                <img src="jane_wood.jpg" alt="Dr. Jane Wood" class="member-photo">
                 <div class="member-info">
-                    <h3><a href="https://scholar.google.com/..." target="_blank">Dr. Jane Wood</a></h3>
-                    <p><strong>Principal Investigator</strong><br>
-                    Jane specializes in X and Y with over 10 years of experience in the field. She leads the lab's vision on Z.</p>
+                    <h3><a href="https://scholar.google.com/" target="_blank">Dr. Jane Wood</a></h3>
+                    <p><strong>Principal Investigator</strong></p>
+                    <p>Short bio: Jane leads the lab's efforts in [Field Name], focusing on [Topic].</p>
                 </div>
             </div>
-
-            <div class="member-card">
-                <img src="member2.jpg" alt="Researcher Name" class="member-photo">
-                <div class="member-info">
-                    <h3><a href="https://scholar.google.com/..." target="_blank">John Smith</a></h3>
-                    <p><strong>Postdoctoral Fellow</strong><br>
-                    John's work focuses on the intersection of data and practical application.</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
         <section id="publications">
             <h2>Publications</h2>
-            <div id="pub-loading" style="display:none; color: #888;">Fetching latest data...</div>
+            <div id="pub-loading" style="display:none; color: #888;">Fetching latest data from Crossref...</div>
             <ul id="doi-list" class="pub-list">
                 </ul>
         </section>
 
         <section id="aob">
             <h2>AOB</h2>
-            <p>Stay tuned for upcoming seminars and news.</p>
+            <p>Welcome to our new website! Check here for upcoming conference announcements and lab news.</p>
         </section>
 
     </div>
 
     <footer>
-        <p style="text-align: center; padding: 2rem; color: #888;">&copy; 2026 WOOD Lab.</p>
+        <p style="text-align: center; padding: 3rem; color: #aaa; font-size: 0.8rem;">
+            &copy; 2026 WOOD Lab | Built with GitHub Pages
+        </p>
     </footer>
-    
+
     <script>
+        /* EDIT THIS LIST: Add your DOIs inside the quotes, separated by commas */
         const doiArray = [
-            "10.1038/s41467-022-28784-w", // Replace these with your actual DOIs
+            "10.1038/s41467-022-28784-w",
             "10.1038/s41467-019-10868-9"
         ];
 
@@ -181,26 +191,26 @@
                     const data = await response.json();
                     const item = data.message;
                     
-                    // Extract Year
+                    // Logic to find the year
                     const year = item.created['date-parts'][0][0];
+                    
                     return {
                         year: year,
                         html: `<li class="pub-item">
                             <strong>${item.title[0]}</strong> (${year}). 
                             <em>${item['container-title'][0]}</em>.<br>
-                            <a href="${item.URL}" target="_blank">${item.URL}</a>
+                            <a href="${item.URL}" target="_blank" style="font-size: 0.9rem;">${item.URL}</a>
                         </li>`
                     };
                 }));
 
-                // Sort by Year (Descending)
+                // Sort newest to oldest
                 pubData.sort((a, b) => b.year - a.year);
 
-                // Inject into page
                 listContainer.innerHTML = pubData.map(p => p.html).join('');
             } catch (error) {
-                console.error("Error fetching DOIs:", error);
-                listContainer.innerHTML = "<li>Error loading publications. Check DOIs or connection.</li>";
+                console.error("DOI Error:", error);
+                listContainer.innerHTML = "<li>Unable to load publications. Please check your DOIs.</li>";
             } finally {
                 loader.style.display = 'none';
             }
