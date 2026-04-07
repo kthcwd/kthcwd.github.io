@@ -118,6 +118,30 @@
         .pub-item a:hover { color: #ffdb58; text-decoration: underline; }
         }
         
+        /* AOB News Cards */
+        .aob-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #0a192f; /* Dark Blue left border */
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .aob-card:hover {
+            transform: translateX(5px); /* Slight nudge when hovering */
+            background: #f1f1f1;
+        }
+
+        .aob-card h3 {
+            margin-top: 0;
+            color: #0a192f;
+        }
+
+        .aob-card p:last-child {
+            margin-bottom: 0;
+        }
+        
         /* Previous Members List */
         .previous-members { color: #555; padding-left: 20px; }
         
@@ -154,7 +178,7 @@
             <div class="member-card">
                 <img src="jane_wood.jpg" alt="Dr. Katherine Wood" class="member-photo">
                 <div class="member-info">
-                    <h3><a href="https://scholar.google.co.uk/" target="citations?user=xD8ZZP4AAAAJ&hl=en&inst=12733411405069140160">Dr. Katherine Wood</a></h3>
+                    <h3><a href="https://scholar.google.co.uk/citations?user=xD8ZZP4AAAAJ&hl" target="_blank">Dr. Katherine Wood</a></h3>
                     <p><strong>Principal Investigator</strong></p>
                     <p>Kath is interested in understanding how brain activity underlies auditory perception.</p>
                 </div>
@@ -171,6 +195,10 @@
         <section id="aob">
             <h2>AOB</h2>
             <p>Welcome to our new website! Check here for upcoming conference announcements and lab news.</p>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 5px solid #0a192f; margin-bottom: 20px;">
+                <h3>News Title</h3>
+                <p>Details about the event or update. You can add <a href="link" target="_blank">links</a> here.</p>
+            </div>
         </section>
         
         <section id="previous-members">
